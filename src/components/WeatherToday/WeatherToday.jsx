@@ -1,6 +1,9 @@
 import "./WeatherToday.css";
 
 function WeatherToday({ weather }) {
+  if (!weather || !weather.weather || !weather.weather[0]) {
+    return null;
+  }
   return (
     <div>
       <h2>{weather?.name}</h2>
