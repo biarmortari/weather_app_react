@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import "./App.css";
 import { api } from "./utils/Api";
+import WeatherToday from "./components/WeatherToday/WeatherToday";
 
 function App() {
   const inputRef = useRef();
@@ -27,6 +28,7 @@ function App() {
       <h1>Previsão do Tempo</h1>
       <input ref={inputRef} type="text" placeholder="Digite a cidade"></input>
       <button onClick={searchCity}>Buscar</button>
+      {weather && weather.weather ? <WeatherToday weather={weather} /> : ""}
     </>
   );
 }
