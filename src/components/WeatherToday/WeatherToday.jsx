@@ -5,18 +5,23 @@ function WeatherToday({ weather }) {
     return null;
   }
   return (
-    <div>
-      <h2>{weather?.name}</h2>
-      <div>
+    <div className="today_container">
+      <h2 className="today_title">{weather?.name}</h2>
+      <div className="today_info">
         <img
+          className="today_img"
           src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         />
-        <p>{weather.main.temp}ºC</p>
+        <p className="today_temp">{Math.round(weather.main.temp)}ºC</p>
       </div>
-      <p>{weather.weather[0].description}</p>
-      <div>
-        <p>Sensação térmica: {weather.main.feels_like}ºC</p>
-        <p>Umidade: {weather.main.humidity}%</p>
+      <div className="today_info-sub">
+        <p className="today_description">{weather.weather[0].description}</p>
+        <p className="today_feels-like">
+          Sensação térmica: {Math.round(weather.main.feels_like)}ºC
+        </p>
+        <p className="today_humidity">
+          Umidade: {Math.round(weather.main.humidity)}%
+        </p>
       </div>
     </div>
   );
