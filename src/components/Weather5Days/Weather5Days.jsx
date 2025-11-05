@@ -18,12 +18,14 @@ function Weather5Days({ weather5Days }) {
   const processedData = processForecastData(nextFiveDays);
 
   return (
-    <div>
-      <h2>Previsão do Tempo para os Próximos 5 Dias</h2>
-      <div>
+    <div className="forecast_container">
+      <h2 className="forecast_title">
+        Previsão do Tempo para os Próximos 5 Dias
+      </h2>
+      <div className="forecast_days">
         {processedData.map((day) => (
-          <div key={day.dt}>
-            <p>{day.weekday}</p>
+          <div key={day.dt} className="forecast_day">
+            <p className="forecast_weekday">{day.weekday}</p>
             <img
               src={`https://openweathermap.org/img/wn/${day.icon}.png`}
               alt={day.description}
