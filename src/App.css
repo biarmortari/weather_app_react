@@ -26,6 +26,10 @@
   border-radius: 0 5px 5px 0;
 }
 
+button:hover {
+  background-color: #f57c00;
+}
+
 @media screen and (max-width: 480px) {
   .app {
     display: flex;

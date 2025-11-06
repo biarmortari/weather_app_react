@@ -28,3 +28,27 @@
   border-radius: 5px;
   padding: 10px;
 }
+
+@media screen and (max-width: 980px) {
+  .forecast_days {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .forecast_days {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .forecast_days {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+}
