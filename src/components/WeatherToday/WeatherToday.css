@@ -32,3 +32,17 @@
 .today_description {
   text-transform: capitalize;
 }
+
+@media screen and (max-width: 680px) {
+  .today_info-sub {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .today_container {
+    border-radius: 10px;
+    margin: 20px 0;
+    width: 80%;
+  }
+}
