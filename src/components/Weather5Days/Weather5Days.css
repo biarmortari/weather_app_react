@@ -46,6 +46,11 @@
 }
 
 @media screen and (max-width: 480px) {
+  .forecast_container {
+    margin: 20px 0;
+    width: 80%;
+  }
+
   .forecast_days {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
