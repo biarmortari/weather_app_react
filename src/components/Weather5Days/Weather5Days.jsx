@@ -15,7 +15,9 @@ function Weather5Days({ weather5Days }) {
   }
 
   const nextFiveDays = Object.entries(dailyForecast).slice(1, 6);
+
   const processedData = processForecastData(nextFiveDays);
+  console.log("processedData final:", processedData);
 
   return (
     <div className="forecast_container">

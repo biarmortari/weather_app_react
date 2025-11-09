@@ -10,11 +10,12 @@ export default function processForecastData(nextFiveDays) {
     const icon = midForecast.weather[0].icon;
     const description = midForecast.weather[0].description;
 
+    const [day, month, year] = date.split("/");
+    const safeDate = new Date(`${year}-${month}-${day}`);
+
     return {
       date,
-      weekday: new Date(date).toLocaleDateString("pt-BR", {
-        weekday: "long",
-      }),
+      weekday: safeDate.toLocaleDateString("pt-BR", { weekday: "long" }),
       max,
       min,
       midForecast,
