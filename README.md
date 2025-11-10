@@ -49,7 +49,7 @@ Consolidar conceitos aprendidos em React, como:
 ## 🔗 Repositório Original e Site ao Vivo
 
 Você pode conferir o site ao vivo em:
-[Lik do site ao vivo](weather-app-react-eight-mu.vercel.app)
+[Lik do site ao vivo](https://weather-app-react-eight-mu.vercel.app)
 
 A versão inicial do projeto (baseada no tutorial) está disponível em:  
 👉 [Link para o repositório original](https://github.com/biarmortari/weather-app-tutorial)
