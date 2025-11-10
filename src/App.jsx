@@ -3,15 +3,24 @@ import "./App.css";
 import { api } from "./utils/Api";
 import WeatherToday from "./components/WeatherToday/WeatherToday";
 import Weather5Days from "./components/Weather5Days/Weather5Days";
+import Loading from "./components/Loading/Loading";
 
 function App() {
   const inputRef = useRef();
 
   const [weather, setWeather] = useState({});
   const [weather5Days, setWeather5Days] = useState();
+  const [loading, setLoading] = useState(false);
+
+  function esperar(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
   async function searchCity() {
+    setLoading(true);
     try {
+      await esperar(3000);
+
       const city = inputRef.current.value;
 
       const dataWeather = await api.getWeatherToday(city);
@@ -19,6 +28,7 @@ function App() {
 
       setWeather(dataWeather.data);
       setWeather5Days(dataWeather5Days.data);
+      setLoading(false);
     } catch (error) {
       console.error("Erro ao buscar cidade", error);
     }
@@ -38,6 +48,7 @@ function App() {
       </button>
       {weather && <WeatherToday weather={weather} />}
       {weather5Days && <Weather5Days weather5Days={weather5Days} />}
+      {loading ? <Loading /> : ""}
     </div>
   );
 }
