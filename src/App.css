@@ -30,6 +30,11 @@ button:hover {
   background-color: #f57c00;
 }
 
+.app_error {
+  color: white;
+  margin-top: 1rem;
+}
+
 @media screen and (max-width: 480px) {
   .app {
     display: flex;

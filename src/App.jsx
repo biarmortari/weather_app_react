@@ -11,26 +11,24 @@ function App() {
   const [weather, setWeather] = useState({});
   const [weather5Days, setWeather5Days] = useState();
   const [loading, setLoading] = useState(false);
-
-  function esperar(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function searchCity() {
     setLoading(true);
+    setErrorMessage("");
     try {
-      await esperar(3000);
+      const cityName = inputRef.current.value;
 
-      const city = inputRef.current.value;
-
-      const dataWeather = await api.getWeatherToday(city);
-      const dataWeather5Days = await api.getWeather5Days(city);
+      const dataWeather = await api.getWeatherToday(cityName);
+      const dataWeather5Days = await api.getWeather5Days(cityName);
 
       setWeather(dataWeather.data);
       setWeather5Days(dataWeather5Days.data);
-      setLoading(false);
     } catch (error) {
-      console.error("Erro ao buscar cidade", error);
+      console.error("Erro ao buscar cidade:", error);
+      setErrorMessage("Cidade não encontrada. Tente novamente.");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -46,9 +44,10 @@ function App() {
       <button onClick={searchCity} className="app_button">
         Buscar
       </button>
+      {errorMessage && <p className="app_error">{errorMessage}</p>}
+      {loading ? <Loading /> : ""}
       {weather && <WeatherToday weather={weather} />}
       {weather5Days && <Weather5Days weather5Days={weather5Days} />}
-      {loading ? <Loading /> : ""}
     </div>
   );
 }
